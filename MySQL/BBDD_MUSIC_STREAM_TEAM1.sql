@@ -48,7 +48,10 @@ CREATE TABLE tracks(
 	PRIMARY KEY (id_track),
 	CONSTRAINT fk_genero_musical_tracks
 		FOREIGN KEY(id_genero)
-		REFERENCES genero_musical(id_genero)
+		REFERENCES genero_musical(id_genero),
+	CONSTRAINT fk_artista_tracks
+    FOREIGN KEY (id_artista)
+    REFERENCES artista (id_artista)
         ON DELETE SET NULL -- actualización automática de los registros
         ON UPDATE CASCADE
 );
