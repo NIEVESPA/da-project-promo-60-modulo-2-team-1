@@ -31,10 +31,11 @@ SELECT anio_lanzamiento -- ,COUNT(*) AS cantidad_tracks
     
 -- 4.¿Cuál es la canción mejor valorada? 
 
-SELECT anio_lanzamiento -- ,COUNT(*) AS cantidad_tracks
-	FROM tracks
-	GROUP BY anio_lanzamiento
-	ORDER BY cantidad_tracks DESC
+SELECT t.nombre AS cancion -- , a.nombre AS artista, a.reproducciones
+	FROM tracks AS t
+	INNER JOIN artista AS a
+		ON t.id_artista = a.id_artista
+	ORDER BY a.reproducciones DESC
 	LIMIT 1;
 -- 5.¿Cuál es el artista con más valoración? 
 
